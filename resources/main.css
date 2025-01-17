@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #aaa;
+    font-size: 1.4em;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #333;
+    position: relative;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+.dropdown input[type="checkbox"] {
+    display: none;
+}
+
+.dropdown label {
+    cursor: pointer;
+}
+
+.dropdown label::after {
+    content: "\25BC";
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* First-level dropdown menu */
+.dropdown-menu {
+    flex-direction: column;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+}
+
+.dropdown-inner {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: none;
+    flex-direction: column;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+}
+
+.submenus input {
+    display: none;
+}
+
+.dropdown-canvas {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: none;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.dropdown input[type="checkbox"]:checked + label + .dropdown-canvas {
+    display: flex;
+}
+
+.dropdown-canvas > ul > li, .dropdown-canvas > ul > li > a, .dropdown-inner > a {
+    padding: 10px 0 10px 20px;
+    color: #333;
+}
+
+
+.dropdown-canvas > ul > li > label:hover, .dropdown-canvas > ul > li > a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Second-level dropdown */
+.dropdown-canvas label {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    top: 0;
+    left: 100%;
+    display: none;
+}
+
+.dropdown-canvas:has(.dd1-sub1-input:checked) .dropdown1-submenu-1 {
+    display: block;
+}
+
+.dropdown-canvas:has(.dd1-sub1-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-1) {
+    display: none;
+}
+
+.dropdown-canvas:has(.dd1-sub2-input:checked) .dropdown1-submenu-2 {
+    display: block;
+}
+
+.dropdown-canvas:has(.dd1-sub2-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-2) {
+    display: none;
+}
+
+.dropdown-canvas:has(.dd1-sub3-input:checked) .dropdown1-submenu-3 {
+    display: block;
+}
+
+.dropdown-canvas:has(.dd1-sub3-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-3) {
+    display: none;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        display: none;
+    }
+
+    .dropdown input[type="checkbox"]:checked + label + .dropdown-menu {
+        display: block;
+    }
+}

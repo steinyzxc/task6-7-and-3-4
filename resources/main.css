@@ -7,20 +7,14 @@ body {
 header .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    padding-bottom: 2rem;
+    padding-bottom: 1.5rem;
 }
 
 header nav {
     display: flex;
-    gap: 20px;
+    gap: 40px;
 }
 
-header nav a {
-    color: #333;
-    position: relative;
-}
-
-/* Dropdown container */
 .dropdown {
     position: relative;
 }
@@ -45,16 +39,8 @@ header nav a {
     /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
 }
 
-.dropdown-inner {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    display: none;
-    flex-direction: column;
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+.submenus {
+    width: 20rem;
 }
 
 .submenus input {
@@ -77,13 +63,27 @@ header nav a {
     display: flex;
 }
 
-.dropdown-canvas > ul > li, .dropdown-canvas > ul > li > a, .dropdown-inner > a {
-    padding: 10px 0 10px 20px;
+.dropdown input[type="checkbox"]:checked + label::after {
+    content: "\25B2";
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+.dropdown input[type="radio"]:checked + label::after {
+    content: "\25B6";
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+
+.dropdown-canvas > ul > li, .dropdown-canvas > ul > li > label,  .dropdown-canvas > ul > li > a {
+    padding: 10px 0 10px 10px;
+    width: 100%;
     color: #333;
 }
 
 
-.dropdown-canvas > ul > li > label:hover, .dropdown-canvas > ul > li > a:hover {
+.dropdown-canvas > ul > li:hover, .dropdown-canvas > ul > li > a:hover {
     background-color: #f0f0f0;
 }
 
@@ -93,13 +93,25 @@ header nav a {
 }
 
 .dropdown-content {
-    top: 0;
-    left: 100%;
     display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px
+}
+
+.dropdown-content a {
+    padding: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.submenu-content {
+    width: calc(100% - 20rem);
 }
 
 .dropdown-canvas:has(.dd1-sub1-input:checked) .dropdown1-submenu-1 {
-    display: block;
+    display: grid;
 }
 
 .dropdown-canvas:has(.dd1-sub1-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-1) {
@@ -107,7 +119,7 @@ header nav a {
 }
 
 .dropdown-canvas:has(.dd1-sub2-input:checked) .dropdown1-submenu-2 {
-    display: block;
+    display: grid;
 }
 
 .dropdown-canvas:has(.dd1-sub2-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-2) {
@@ -115,10 +127,34 @@ header nav a {
 }
 
 .dropdown-canvas:has(.dd1-sub3-input:checked) .dropdown1-submenu-3 {
-    display: block;
+    display: grid;
 }
 
 .dropdown-canvas:has(.dd1-sub3-input:checked) .submenu-content > .submenu-content:not(.dropdown1-submenu-3) {
+    display: none;
+}
+
+.dropdown-canvas:has(.dd2-sub1-input:checked) .dropdown2-submenu-1 {
+    display: grid;
+}
+
+.dropdown-canvas:has(.dd2-sub1-input:checked) .submenu-content > .submenu-content:not(.dropdown2-submenu-1) {
+    display: none;
+}
+
+.dropdown-canvas:has(.dd2-sub2-input:checked) .dropdown2-submenu-2 {
+    display: grid;
+}
+
+.dropdown-canvas:has(.dd2-sub2-input:checked) .submenu-content > .submenu-content:not(.dropdown2-submenu-2) {
+    display: none;
+}
+
+.dropdown-canvas:has(.dd2-sub3-input:checked) .dropdown2-submenu-3 {
+    display: grid;
+}
+
+.dropdown-canvas:has(.dd2-sub3-input:checked) .submenu-content > .submenu-content:not(.dropdown2-submenu-3) {
     display: none;
 }
 

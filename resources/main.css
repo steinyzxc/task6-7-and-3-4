@@ -33,12 +33,6 @@ header nav {
     margin-left: 5px;
 }
 
-/* First-level dropdown menu */
-.dropdown-menu {
-    flex-direction: column;
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
-}
-
 .submenus {
     width: 20rem;
 }
@@ -160,9 +154,16 @@ header nav {
 
 /* Mobile view */
 @media (max-width: 768px) {
-    header nav {
+    .dropdown-canvas {
         flex-direction: column;
-        align-items: flex-start;
+    }
+
+    .submenus {
+        width: 100%;
+    }
+
+    .submenu-content {
+        width: 100%;
     }
 
     .dropdown-menu {

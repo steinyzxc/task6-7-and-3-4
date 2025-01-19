@@ -50,6 +50,7 @@ header nav {
     display: none;
     flex-direction: row;
     width: 100%;
+    min-width: 550px;
 }
 
 
@@ -70,8 +71,9 @@ header nav {
 }
 
 
-.dropdown-canvas > ul > li, .dropdown-canvas > ul > li > label,  .dropdown-canvas > ul > li > a {
-    padding: 10px 0 10px 10px;
+.dropdown-canvas > ul > li > label,  .dropdown-canvas > ul > li > a {
+    padding: 10px 0 10px 0;
+    display: block;
     width: 100%;
     color: #333;
 }
@@ -101,7 +103,7 @@ header nav {
 }
 
 .submenu-content {
-    width: calc(100% - 20rem);
+    flex: 1;
 }
 
 .dropdown-canvas:has(.dd1-sub1-input:checked) .dropdown1-submenu-1 {
